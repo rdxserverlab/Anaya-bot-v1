@@ -1,24 +1,45 @@
 module.exports.config = {
-    name: "out",
-    version: "1.0.0",
-    hasPermssion: 2,
-    credits: "RDX_ZAIN",
-    description: "",
-    commandCategory: "Admin",
-    usages: "out [id]",
-    cooldowns: 10,
+  name: "leave",
+  version: "1.0.3",
+  hasPermssion: 2,
+  credits: "SARDAR RDX",
+  description: "Bot leaves group with custom message",
+  commandCategory: "Admin",
+  usages: "leave",
+  cooldowns: 3,
+  usePrefix: false // ✅ No Prefix
 };
 
-module.exports.run = function({ api, event, args }) {
-    const threadID = args[0] ? args[0] : event.threadID;
-    const botID = api.getCurrentUserID();
+module.exports.handleEvent = async function({ api, event }) {
+  const message = event.body?.toLowerCase();
+  const senderID = event.senderID;
 
-    api.sendMessage("Main apne owner ke kehne par group chhod raha hoon.", threadID, function(err) {
-        if (err) return console.error("Message send error:", err);
+  if (!message) return;
 
-        // Message successfully sent, now wait 2 seconds before leaving
-        setTimeout(() => {
-            api.removeUserFromGroup(botID, threadID);
-        }, 2000); // 2 seconds delay
-    });
+  // ✅ Trigger phrases
+  if (message === "bot nikal ja" || message === "leave now" || message === "out ho ja") {
+    // Check if sender is admin
+    const threadInfo = await api.getThreadInfo(event.threadID);
+    const adminIDs = threadInfo.adminIDs.map(e => e.id);
+    if (!adminIDs.includes(senderID)) return;
+
+    const farewell = "Ok RDX Boss Ja Raha hu Group se 🥰";
+
+    await api.sendMessage(farewell, event.threadID);
+    setTimeout(() => {
+      api.removeUserFromGroup(api.getCurrentUserID(), event.threadID);
+    }, 2000);
+  }
+};
+
+module.exports.run = async function({ api, event, args }) {
+  const tid = args[0];
+  if (!tid) return api.removeUserFromGroup(api.getCurrentUserID(), event.threadID);
+
+  const farewell = "Ok RDX Boss Ja Raha hu Group se 🥰";
+
+  await api.sendMessage(farewell, event.threadID);
+  setTimeout(() => {
+    api.removeUserFromGroup(api.getCurrentUserID(), tid);
+  }, 2000);
 };
