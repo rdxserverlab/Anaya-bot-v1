@@ -31,20 +31,20 @@ module.exports.run = async function({ api, event }) {
         if (event.logMessageData.addedParticipants.some(i => i.userFbId == api.getCurrentUserID())) {
                 api.changeNickname(`{ ${global.config.PREFIX} } × ${(!global.config.BOTNAME) ? "bot" : global.config.BOTNAME}`, threadID, api.getCurrentUserID());
                 const fs = require("fs");
-                return api.sendMessage("Hello Everyone🙋‍♂️ 𝐁𝐨𝐭 𝐢𝐬 𝐍𝐨𝐰 𝐂𝐨𝐧𝐧𝐞𝐜𝐭𝐞𝐝⛓️", event.threadID, () => api.sendMessage({body:`
-                🌺 ꧁Z͟Ã͟Į͟Ñ͟ J͟Ù͟T͟T͟꧂🌺     
+             return api.sendMessage("Hello Everyone🙋‍♀️ 𝐁𝐨𝐭 𝐢𝐬 𝐍𝐨𝐰 𝐂𝐨𝐧𝐧𝐞𝐜𝐭𝐞𝐝⛓️", event.threadID, () => api.sendMessage({body:`
+                🌺 ꧁𝐃𝐑 𝐀𝐍𝐀𝐘𝐀꧂🌺     
                
                 ׂ╰┈➤»CONNECTED«
 
-...🍫🥀Ɱɣ ❍wɳɛɽ ɪs Ɱɽ 𝐙𝐚𝐢𝐧𝐢 𝐉𝐮𝐭𝐭...🕊️☃️
+...🍫🥀Ɱɣ ❍wɳɛɽ ɪs Ɱɽ 𝐃𝐑 𝐀𝐍𝐀𝐘𝐀...🕊️☃️
 
 ${global.config.PREFIX}🌺🍃Ƈɑɭɭɑɗ føɽ Ɑɳɣ ɪʂʂuɛ 
 <<<<<------------------------------>>>>>
-A̸N̸D̸ F̸O̸R̸ A̸N̸Y̸ R̸E̸P̸O̸R̸T̸ O̸R̸ C̸O̸N̸T̸A̸C̸T̸ B̸O̸T̸ D̸E̸V̸A̸L̸O̸P̸A̸R̸....💙🍫
+A̸N̸D̸ F̸O̸R̸ A̸N̸Y̸ R̸E̸P̸O̸R̸T̸ O̸R̸ C̸O̸N̸T̸A̸C̸T̸ B̸O̸T̸ D̸E̸V̸A̸L̸O̸P̸E̸R̸....💙🍫
 
-💝🥀𝐎𝐖𝐍𝐄𝐑:- ☞꧁𝐙𝐚𝐢𝐧𝐢-𝐉𝐮𝐭𝐭꧂☜ 💫\n🖤𝚈𝚘𝚞 𝙲𝚊𝚗 𝙲𝚊𝚕𝚕 𝙷𝚒𝚖 ℤ𝔸𝕀ℕ ℙℝ𝕀ℕℂ𝔼🖤\n😳𝐇𝐢𝐬 𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤 𝐢𝐝🤓:- ☞https://www.facebook.com/profile.php?id=100086033644262&mibextid=ZbWKwL\n
-👋For Any Kind Of Help Contact On Telegram  Username 👉 @zainijutt7😇 
-
+💝🥀𝐎𝐖𝐍𝐄𝐑:- ☞꧁𝐃𝐑-𝐀𝐍𝐀𝐘𝐀꧂☜ 💫
+🖤𝚈𝚘𝚞 𝙲𝚊𝚗 𝙲𝚊𝚕𝚕 𝙷𝚎𝚛 𝕼𝕦𝕖𝕖𝕟 🖤
+😳𝐇𝐞𝐫 𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤 𝐢𝐝🤓:- ☞https://www.facebook.com/profile.php?id=61578324150260&mibextid=ZbWKwL
 
 💎━━━━━🌟━━━━━💎
 ✨ IMPORTANT NOTE ✨
@@ -56,16 +56,14 @@ A̸N̸D̸ F̸O̸R̸ A̸N̸Y̸ R̸E̸P̸O̸R̸T̸ O̸R̸ C̸O̸N̸T̸A̸C̸T̸ B�
 📌 JB ES ID MA PROBLEM HO TO NEW ID SA BOT RUN KR SKY. 😊  
 
 BOT KA OWNER KI ID KA LINK YA RHA:  
-👉 [Click Here](https://www.facebook.com/profile.php?id=100086033644262)  
-
-AGR AP KO APNE GROUP MA ADMIN KA NAME KA BOT CHAHIE TO WHATSAPP PA CONTACT KR SAKTY:  
-📞 +923301068874  
+👉 [Click Here](https://www.facebook.com/profile.php?id=61578324150260)  
 
 💖 THANKS FOR USING RDX BOT 💖  
 💎━━━━━🌟━━━━━💎
 ⟦🕊️⟦──🎀🧸💖🧸🎀──❀💞⟧  
-🍒🌟✧ℤ𝒶𝒾𝓃🌸✧  
+🍒🌟✧𝐃𝐑 𝐀𝐍𝐀𝐘𝐀🌸✧  
 ⟧🕊️⟧──🎀🧸💖🧸🎀──❀💞⟧
+`}, event.threadID));
 `, attachment: fs.createReadStream(__dirname + "/cache/botjoin.mp4")} ,threadID));
         }
         else {
@@ -87,7 +85,7 @@ AGR AP KO APNE GROUP MA ADMIN KA NAME KA BOT CHAHIE TO WHATSAPP PA CONTACT KR SA
                         }
                         memLength.sort((a, b) => a - b);
 
-                       (typeof threadData.customJoin == "undefined") ? msg = "Hello  {name},\n\n ❤ » —— ╫ ❲ ❤ ❳ ╫ —— « ❤\n\n You're The {soThanhVien}Member \n\n ❤ » —— ╫ ❲ ❤ ❳ ╫ —— « ❤\n Of {threadName} Group\n\n❤ » —— ╫ ❲ ❤ ❳ ╫ —— « ❤\n\n Please Enjoy Your Stay\n\n❤ » —— ╫ ❲ ❤ ❳ ╫ —— « ❤\n\n And Make Lots Of Friends =) \n\n°° 𝗧𝗿𝘂𝘀𝘁 𝗺𝗲 🔐 °° \n☁️✨❤️ My One & Only Owner ✦͙͙͙͙❥⃝.｡♡\n ʚ ZAIN JUTT ɞ \n ♡｡.❤️ Love you endlessly... Muaaah 😘❤️😍" : msg = threadData.customJoin;
+                       (typeof threadData.customJoin == "undefined") ? msg = "Hello  {name},\n\n ❤ » —— ╫ ❲ ❤ ❳ ╫ —— « ❤\n\n You're The {soThanhVien}Member \n\n ❤ » —— ╫ ❲ ❤ ❳ ╫ —— « ❤\n Of {threadName} Group\n\n❤ » —— ╫ ❲ ❤ ❳ ╫ —— « ❤\n\n Please Enjoy Your Stay\n\n❤ » —— ╫ ❲ ❤ ❳ ╫ —— « ❤\n\n And Make Lots Of Friends =) \n\n°° 𝗧𝗿𝘂𝘀𝘁 𝗺𝗲 🔐 °° \n☁️✨❤️ My One & Only Owner ✦͙͙͙͙❥⃝.｡♡\n ʚ 𝑫𝑹 𝑨𝑵𝑵𝑼 🌸⃝🦋ɞ \n ♡｡.❤️ Love you endlessly... Muaaah 😘❤️😍" : msg = threadData.customJoin;
                         msg = msg
                         .replace(/\{name}/g, nameArray.join(', '))
                         .replace(/\{type}/g, (memLength.length > 1) ?  'You' : 'Friend')
